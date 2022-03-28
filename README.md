@@ -4,7 +4,7 @@ Implementation of Double DQN with Pytorch
 
 in case if you understan farsi and wanna find out more read following in virgool by me :D
 
-## install & run
+## get and train
 
 ```bash
 git clone git@github.com:mhyrzt/D2QN.git
