@@ -6,7 +6,7 @@ import torch.nn.functional as F
 
 
 class Model(nn.Module):
-    def __init__(self, input, output, hiddens=(32, 32, 32),filename:str=None):
+    def __init__(self, input, output, hiddens=(32, 32, 32)):
         super().__init__()
         self.inp = nn.Linear(input, hiddens[0])
         
@@ -16,9 +16,6 @@ class Model(nn.Module):
             self.fcs.append(fc)
             
         self.out = nn.Linear(hiddens[-1], output)
-        
-        if filename:
-            self.load(filename)
         
         self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
         self.to(self.device)
