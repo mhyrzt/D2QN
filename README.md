@@ -89,19 +89,25 @@ buffer = ReplyBuffer(5_000, 128)
 
 ### ``Model``
 
-in progress...
+our ANN model for predicting Q-values. as arguments it takes 3 parameters:
+
+1. shape of state which represent input dimension.
+2. number of possible action which represents output dimension.
+3. an array of numbers which represent hidden layers and their size.
+
+```python
+model = Model(4, 2, (32, 32, 32))
+```
 
 #### Methods
 
-in progress...
+- ``copy`` → create a copy from model and return it
+- ``save`` → save model to a file.
+- ``load`` → load model from file.
 
 ### ``Agent``
 
-in progress...
-
-#### Methods
-
-in progress...
+main implementation of __D2QN__ which utilize all classes above to make it work
 
 ## Results
 
