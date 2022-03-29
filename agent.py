@@ -1,5 +1,6 @@
 from model import Model
 from epsilon import Epsilon
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -10,7 +11,7 @@ class Agent:
     def __init__(self, env, **kwargs):
         self.env = env
         self.gamma = kwargs.get("gamma", 0.99)
-        self.hiddens = kwargs.get("hiddens", (32, 32, 32, 32))
+        self.hiddens = kwargs.get("hiddens", (32, 32, 32))
         self.batch_size = kwargs.get("batch_size", 128)
 
         self.buffer = ReplyBuffer(kwargs.get(
@@ -38,6 +39,10 @@ class Agent:
         next_state, reward, done, _ = self.env.step(action)
         self.buffer.add(state, action, reward, next_state, float(done))
         return next_state, done, reward
+    
+    def get_action(self, state):
+        q_values = self.online_model(state).detach().cpu().numpy()
+        return np.argmax(q_values)
 
     def can_train(self):
         return self.buffer.can_sample()

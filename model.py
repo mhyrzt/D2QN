@@ -4,7 +4,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-
 class Model(nn.Module):
     def __init__(self, input, output, hiddens=(32, 32, 32)):
         super().__init__()
@@ -27,7 +26,6 @@ class Model(nn.Module):
             x = F.relu(fc(x))
         x = self.out(x)
         return x
-
     
     def _tensor(self, x):
         if isinstance(x, torch.Tensor):
