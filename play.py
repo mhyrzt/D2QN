@@ -1,7 +1,7 @@
 import gym
 from agent import Agent
 from time import sleep
-from main import ENV_NAME
+from trainer import ENV_NAME
 
 FPS = 1.0 / 30.0
 
