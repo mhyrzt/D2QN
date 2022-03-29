@@ -102,3 +102,11 @@ in progress...
 #### Methods
 
 in progress...
+
+## Results
+
+- CartPole-v1
+![CartPole-v1](results/CartPole-v1.png)
+
+- LunarLander-v2
+![LunarLander-v2](results/LunarLander.png)
